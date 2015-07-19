@@ -1,0 +1,19 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+ 
+    <div class="row">
+       {% for entity in listauto %}
+           
+           <div class="col-md-3">
+               <div>
+                   {% if entity.image %}<img width="100" src="{{app.request.basepath}}/{{ entity.image.getUploadDir() }}/{{ entity.id }}.{{ entity.image.url }}" /> {% endif %}
+               </div>
+               <div>  <strong>{{ entity.getMarque().nom }} </strong>/<strong>{{ entity.getModele().nom }} </strong></div>
+               <div>
+                   {{ entity.titre }} 
+               </div>
+           </div>
+          {# loop.index compteur iteration #}
+       {% endfor %}    
+    </div>    
+{% endblock %}

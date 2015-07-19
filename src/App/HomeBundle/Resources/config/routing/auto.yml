@@ -1,0 +1,30 @@
+auto:
+    path:     /
+    defaults: { _controller: "HomeBundle:Auto:index" }
+
+auto_show:
+    path:     /{id}/show
+    defaults: { _controller: "HomeBundle:Auto:show" }
+
+auto_new:
+    path:     /new
+    defaults: { _controller: "HomeBundle:Auto:new" }
+
+auto_create:
+    path:     /create
+    defaults: { _controller: "HomeBundle:Auto:create" }
+    methods:  POST
+
+auto_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "HomeBundle:Auto:edit" }
+
+auto_update:
+    path:     /{id}/update
+    defaults: { _controller: "HomeBundle:Auto:update" }
+    methods:  [POST, PUT]
+
+auto_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "HomeBundle:Auto:delete" }
+    methods:  [POST, DELETE]

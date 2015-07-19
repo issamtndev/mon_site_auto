@@ -1,0 +1,47 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    
+    $('#app_homebundle_auto_modele').html(' <option value="">Selectionnez le modele</option>');          
+    $('#app_homebundle_auto_marque').change(function(){
+					var jqxhr = $.post( "http://localhost/my_project/web/app_dev.php/modele/option_marque", {id:$(this).val()},function(data) {
+ // alert( "success" );
+   $('#app_homebundle_auto_modele').html(data);
+})
+  .done(function() {
+  //  alert( "second success" );
+  })
+  .fail(function() {
+    //alert( "error" );
+  })
+  .always(function() {
+    //alert( "finished" );
+});
+ 
+// Perform other work here ...
+ 
+// Set another completion function for the request above
+jqxhr.always(function() {
+  //alert( "second finished" );
+});
+					
+					
+            });
+        });
+</script>
+    <h1>Auto creation</h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('auto') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

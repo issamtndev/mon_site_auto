@@ -1,0 +1,15 @@
+home_modele:
+    resource: "@HomeBundle/Resources/config/routing/modele.yml"
+    prefix:   /modele
+
+home_marque:
+    resource: "@HomeBundle/Resources/config/routing/marque.yml"
+    prefix:   /marque
+
+home_auto:
+    resource: "@HomeBundle/Resources/config/routing/auto.yml"
+    prefix:   /auto
+
+home_homepage:
+    path:     /
+    defaults: { _controller: HomeBundle:Default:index }

@@ -1,0 +1,34 @@
+modele:
+    path:     /
+    defaults: { _controller: "HomeBundle:Modele:index" }
+
+modele_show:
+    path:     /{id}/show
+    defaults: { _controller: "HomeBundle:Modele:show" }
+
+modele_new:
+    path:     /new
+    defaults: { _controller: "HomeBundle:Modele:new" }
+
+modele_create:
+    path:     /create
+    defaults: { _controller: "HomeBundle:Modele:create" }
+    methods:  POST
+
+modele_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "HomeBundle:Modele:edit" }
+
+option_marque:
+    path:     /option_marque
+    defaults: { _controller: "HomeBundle:Modele:option_marque" }    
+
+modele_update:
+    path:     /{id}/update
+    defaults: { _controller: "HomeBundle:Modele:update" }
+    methods:  [POST, PUT]
+
+modele_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "HomeBundle:Modele:delete" }
+    methods:  [POST, DELETE]

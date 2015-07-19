@@ -1,0 +1,58 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+    <h1>Auto list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Image</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Nbporte</th>
+                <th>Prix</th>
+                <th>Nbcylindre</th>
+                <th>Energie</th>
+                <th>Puissance</th>
+                <th>Boite</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('auto_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{% if entity.image %}<img width="100" src="{{ entity.image.getWebPath() }}" /> {% endif %}</td>
+                <td>{{ entity.titre }}</td>
+                <td>{{ entity.description }}</td>
+                <td>{{ entity.nbporte }}</td>
+                <td>{{ entity.prix }}</td>
+                <td>{{ entity.nbcylindre }}</td>
+                <td>{{ entity.energie }}</td>
+                <td>{{ entity.puissance }}</td>
+                <td>{{ entity.boite }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('auto_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('auto_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('auto_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}
